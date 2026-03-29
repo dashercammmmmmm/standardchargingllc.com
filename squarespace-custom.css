@@ -1,0 +1,46 @@
+/* Standard Charging LLC - Apple-style Squarespace skin */
+:root {
+  --sc-ink: #0f172a;
+  --sc-muted: #475569;
+  --sc-blue: #2563eb;
+  --sc-line: rgba(15, 23, 42, 0.12);
+  --sc-glass: rgba(255, 255, 255, 0.72);
+}
+
+body {
+  background: radial-gradient(circle at 20% 0%, #e8f0ff, transparent 45%), #f5f7fb;
+  color: var(--sc-ink);
+}
+
+.sqs-block-content h1,
+.sqs-block-content h2,
+.sqs-block-content h3 {
+  letter-spacing: -0.02em;
+}
+
+section[data-section-id] .content-wrapper,
+.sqs-block {
+  border-radius: 18px;
+}
+
+.sqs-block {
+  background: var(--sc-glass);
+  border: 1px solid var(--sc-line);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+  padding: 8px;
+}
+
+.sqs-button-element--primary {
+  background: var(--sc-blue) !important;
+  border-radius: 999px !important;
+  border: none !important;
+}
+
+.sqs-button-element--secondary {
+  border-radius: 999px !important;
+}
+
+@media (max-width: 767px) {
+  .sqs-block { padding: 4px; }
+}

@@ -1,0 +1,45 @@
+/* Standard Charging LLC - Squarespace Native (no JS dependency) */
+:root {
+  --sc-ink: #0f172a;
+  --sc-muted: #475569;
+  --sc-blue: #2563eb;
+  --sc-line: rgba(15, 23, 42, 0.12);
+  --sc-glass: rgba(255, 255, 255, 0.78);
+}
+
+body {
+  background: radial-gradient(circle at 20% 0%, #e8f0ff, transparent 45%), #f5f7fb;
+  color: var(--sc-ink);
+}
+
+.sc-wrap { max-width: 1100px; margin: 0 auto; }
+.sc-card {
+  background: var(--sc-glass);
+  border: 1px solid var(--sc-line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+}
+.sc-hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 8px 0 12px; letter-spacing: -0.02em; }
+.sc-eyebrow { color: var(--sc-blue); font-weight: 700; margin: 0; }
+.sc-grid-3 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.sc-grid-2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.sc-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 11px 16px;
+  border: 1px solid var(--sc-line);
+  margin-right: 8px;
+}
+.sc-btn.primary { background: var(--sc-blue); color: #fff; border: none; }
+.sc-btn.secondary { background: #fff; color: var(--sc-ink); }
+.sc-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 14px; }
+.sc-stats strong { font-size: 1.25rem; display: block; }
+.sc-table { width: 100%; border-collapse: collapse; }
+.sc-table th, .sc-table td { border-bottom: 1px solid var(--sc-line); padding: 10px; text-align: left; }
+.sc-table th { background: #eef2ff; }
+.sc-total td { font-weight: 800; }
+.sc-section-title { margin: 0 0 10px; font-size: 1.6rem; }
