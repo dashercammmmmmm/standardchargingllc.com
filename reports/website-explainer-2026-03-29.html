@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Guide — standardchargingllc.com</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    :root {
+      --green: #1db954;
+      --blue: #58a6ff;
+      --yellow: #e3b341;
+      --orange: #f0883e;
+      --red: #f85149;
+      --purple: #bc8cff;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+    }
+
+    /* ── Layout ── */
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+    /* ── Header ── */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .page-header .badge {
+      display: inline-block;
+      background: rgba(29,185,84,0.15);
+      color: var(--green);
+      border: 1px solid rgba(29,185,84,0.35);
+      border-radius: 100px;
+      padding: 0.3rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #f0f6fc;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Table of Contents ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .toc h3 {
+      color: #f0f6fc;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.35rem; }
+    .toc a { color: var(--blue); text-decoration: none; font-size: 0.95rem; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── Section headings ── */
+    .section { margin-bottom: 3.5rem; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      background: var(--green);
+      color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #f0f6fc;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Prose ── */
+    p { margin-bottom: 1rem; color: var(--text); }
+    h3 { color: #f0f6fc; font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    h4 { color: var(--green); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin: 1.25rem 0 0.4rem; }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.35rem; color: var(--text); }
+    strong { color: #f0f6fc; }
+    a { color: var(--blue); }
+
+    /* ── Code ── */
+    code {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.88em;
+      background: rgba(110,118,129,0.2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.1em 0.4em;
+      color: #e6edf3;
+    }
+    pre {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      margin: 1rem 0 1.5rem;
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: #e6edf3;
+    }
+    pre .comment { color: var(--muted); }
+    pre .green { color: var(--green); }
+    pre .blue { color: var(--blue); }
+    pre .yellow { color: var(--yellow); }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      border-left: 4px solid;
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 0.5rem;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .callout.edit {
+      background: rgba(29,185,84,0.08);
+      border-color: var(--green);
+    }
+    .callout.edit .callout-title { color: var(--green); }
+
+    .callout.info {
+      background: rgba(88,166,255,0.08);
+      border-color: var(--blue);
+    }
+    .callout.info .callout-title { color: var(--blue); }
+
+    .callout.warn {
+      background: rgba(227,179,65,0.08);
+      border-color: var(--yellow);
+    }
+    .callout.warn .callout-title { color: var(--yellow); }
+
+    .callout.danger {
+      background: rgba(248,81,73,0.08);
+      border-color: var(--red);
+    }
+    .callout.danger .callout-title { color: var(--red); }
+
+    .callout.tip {
+      background: rgba(188,140,255,0.08);
+      border-color: var(--purple);
+    }
+    .callout.tip .callout-title { color: var(--purple); }
+
+    /* ── Site map diagram ── */
+    .diagram-box {
+      background: #0a0e13;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      margin: 1.25rem 0 1.5rem;
+      overflow-x: auto;
+    }
+    .diagram-box pre {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      color: var(--green);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    /* ── Section cards for site walkthrough ── */
+    .site-section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .site-section-card .card-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--green);
+      background: rgba(29,185,84,0.12);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .site-section-card h3 {
+      margin: 0 0 0.6rem;
+      color: #f0f6fc;
+      font-size: 1.05rem;
+    }
+    .site-section-card p { margin-bottom: 0.5rem; }
+    .site-section-card p:last-child { margin-bottom: 0; }
+
+    /* ── Step list ── */
+    .step-list { counter-reset: steps; list-style: none; padding-left: 0; }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .step-list li::before {
+      content: counter(steps);
+      background: var(--green);
+      color: #fff;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── Page Header ── -->
+  <div class="page-header">
+    <div class="badge">⚡ Website Guide</div>
+    <h1>standardchargingllc.com</h1>
+    <p>A friendly, plain-English guide to how the website works, what each section does, and how to make changes — no tech background needed.</p>
+  </div>
+
+  <!-- ── Table of Contents ── -->
+  <div class="toc">
+    <h3>📋 In This Guide</h3>
+    <ol>
+      <li><a href="#what-it-does">What the website does</a></li>
+      <li><a href="#structure">Site structure walkthrough</a></li>
+      <li><a href="#how-to-change">How to make common changes</a></li>
+      <li><a href="#files">Where files live &amp; how GitHub Pages works</a></li>
+      <li><a href="#tesla-key">The Tesla key file — don't delete it</a></li>
+      <li><a href="#deploy">How to deploy updates</a></li>
+    </ol>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 1 — WHAT THE WEBSITE DOES
+  ════════════════════════════════════════ -->
+  <div class="section" id="what-it-does">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>What the Website Does</h2>
+    </div>
+
+    <p>
+      The <strong>standardchargingllc.com</strong> website is a one-page marketing site for Standard Charging LLC —
+      Cam's EV charging business based in Albany, OR. It has one job: convince local business owners to
+      let Standard Charging install EV chargers in their parking lots.
+    </p>
+
+    <h3>Who it's talking to</h3>
+    <p>
+      The audience is <strong>local business owners</strong> — restaurants, retail shops, gyms, anyone with a parking lot.
+      These are not tech people. They need to feel safe, see the value quickly, and know how to get in touch.
+    </p>
+
+    <h3>What it's trying to accomplish</h3>
+    <ul>
+      <li>✅ Build credibility fast (looks professional, clean, modern)</li>
+      <li>✅ Answer the biggest objection upfront: "<em>$0 cost to you</em>"</li>
+      <li>✅ Show the process is simple and low-effort for the business owner</li>
+      <li>✅ Get them to call or reach out — there's no form, just a phone number</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-title">💡 The Core Message</div>
+      <p>
+        "We put EV chargers in your parking lot for free, drivers come to charge, they spend money in your business, and you get a cut of the charging revenue. You do nothing. We handle everything."
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 2 — SITE STRUCTURE
+  ════════════════════════════════════════ -->
+  <div class="section" id="structure">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Site Structure Walkthrough</h2>
+    </div>
+
+    <p>The whole website is a single HTML file. It scrolls top-to-bottom through 7 sections. Here's the bird's-eye view:</p>
+
+    <div class="diagram-box">
+<pre>
+┌────────────────────────────────────────────────────┐
+│  🔝  NAVIGATION BAR                                │
+│      Logo | "Get Started" button (links to contact) │
+├────────────────────────────────────────────────────┤
+│  🌟  HERO SECTION                                   │
+│      Big headline · Subtext · Two buttons           │
+├────────────────────────────────────────────────────┤
+│  🔢  HOW IT WORKS (3 steps)                         │
+│      Step 1: Assessment · Step 2: Install           │
+│      Step 3: Profit                                 │
+├────────────────────────────────────────────────────┤
+│  📊  STATS STRIP (dark bar)                         │
+│      $0 · 45 min · 3× · 24/7                        │
+├────────────────────────────────────────────────────┤
+│  💼  WHY SPONSOR (6 benefit cards)                  │
+│      No Cost · App Visibility · Revenue Share       │
+│      Sustainability · Zero Maintenance · Reports    │
+├────────────────────────────────────────────────────┤
+│  📞  CONTACT / CTA                                  │
+│      Headline · Contact card · Call button          │
+├────────────────────────────────────────────────────┤
+│  🦶  FOOTER                                         │
+│      Name · Location · Copyright                    │
+└────────────────────────────────────────────────────┘
+</pre>
+    </div>
+
+    <p>Now let's walk through each one:</p>
+
+    <!-- Nav -->
+    <div class="site-section-card">
+      <div class="card-label">Section 1</div>
+      <h3>🔝 Navigation Bar</h3>
+      <p>
+        Sticks to the top of the screen as you scroll (called a "sticky nav"). It has two things:
+        the <strong>logo</strong> on the left (a lightning bolt icon + "Standard Charging LLC") and a
+        <strong>"Get Started" button</strong> on the right that jumps down to the contact section.
+      </p>
+      <p>
+        It's dark and slightly transparent with a blur effect — looks clean on any background.
+      </p>
+    </div>
+
+    <!-- Hero -->
+    <div class="site-section-card">
+      <div class="card-label">Section 2</div>
+      <h3>🌟 Hero Section</h3>
+      <p>
+        This is the first big thing visitors see. It has a dark gradient background and four key elements:
+      </p>
+      <ul>
+        <li><strong>Eyebrow text</strong> — small badge reading "Albany, OR · EV Charging Solutions"</li>
+        <li><strong>Main headline</strong> — "Turn Your Parking Lot Into a Customer Magnet"</li>
+        <li><strong>Subtext</strong> — "We install and maintain EV charging stations at local businesses — at no cost to you. Your brand powers every charge."</li>
+        <li><strong>Two buttons</strong> — "Partner With Us" (links to contact) and "See How It Works" (scrolls down)</li>
+      </ul>
+      <p>The word <strong>"Customer Magnet"</strong> is styled in bright green to make it pop.</p>
+    </div>
+
+    <!-- How It Works -->
+    <div class="site-section-card">
+      <div class="card-label">Section 3</div>
+      <h3>🔢 How It Works (3 Steps)</h3>
+      <p>
+        Light gray background section with three cards side-by-side (they stack vertically on mobile).
+        Each card has a numbered green circle, a short title, and a description.
+      </p>
+      <ul>
+        <li><strong>Step 1 — Free Site Assessment:</strong> We come check out your parking lot, no cost.</li>
+        <li><strong>Step 2 — We Install &amp; Brand Everything:</strong> We handle permits, gear, and put your name on the charger.</li>
+        <li><strong>Step 3 — Drivers Come, You Profit:</strong> EV drivers stop in, shop, and you get a revenue cut.</li>
+      </ul>
+    </div>
+
+    <!-- Stats -->
+    <div class="site-section-card">
+      <div class="card-label">Section 4</div>
+      <h3>📊 Stats Strip</h3>
+      <p>
+        A dark full-width bar with four big numbers that make the value proposition feel concrete.
+        These are designed to answer objections before they're asked:
+      </p>
+      <ul>
+        <li><strong>$0</strong> — Upfront cost to sponsors (zero financial risk)</li>
+        <li><strong>45 min</strong> — Average dwell time per charge (they'll be in your store)</li>
+        <li><strong>3×</strong> — More likely to return visits (EV drivers are loyal)</li>
+        <li><strong>24/7</strong> — Remote monitoring &amp; support (you really do nothing)</li>
+      </ul>
+    </div>
+
+    <!-- Why Sponsor -->
+    <div class="site-section-card">
+      <div class="card-label">Section 5</div>
+      <h3>💼 Why Sponsor (6 Benefit Cards)</h3>
+      <p>
+        Six cards in a grid layout, each with an emoji icon, a bold title, and a short description.
+        They have a subtle border that glows green when you hover over them.
+      </p>
+      <ul>
+        <li>⚡ <strong>No Cost, No Risk</strong></li>
+        <li>📍 <strong>App Visibility</strong> — listed in EV charging apps</li>
+        <li>💰 <strong>Revenue Share</strong> — earn from charging sessions</li>
+        <li>🌱 <strong>Sustainability Cred</strong> — eco-friendly brand alignment</li>
+        <li>🔧 <strong>Zero Maintenance</strong> — 24/7 monitoring and tech dispatch</li>
+        <li>📊 <strong>Usage Reports</strong> — monthly data on sessions and revenue</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="site-section-card">
+      <div class="card-label">Section 6</div>
+      <h3>📞 Contact / CTA Section</h3>
+      <p>
+        Dark gradient background (matches the hero). Has a headline, a short urgency line about limited spots,
+        and a <strong>contact card</strong> showing:
+      </p>
+      <ul>
+        <li>Cam's name: <strong>Cameron Sofsky</strong></li>
+        <li>Title: Founder, Standard Charging LLC</li>
+        <li>Phone: <strong>(352) 286-7134</strong> — tappable link on mobile</li>
+        <li>Location: Albany, OR</li>
+      </ul>
+      <p>Below that is a green "Call Us Now" button that also dials the number when tapped.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="site-section-card">
+      <div class="card-label">Section 7</div>
+      <h3>🦶 Footer</h3>
+      <p>
+        Simple dark bar at the bottom. Just one line of text:
+        <em>Standard Charging LLC · Albany, Oregon · © 2026 All rights reserved.</em>
+      </p>
+      <p>Nothing to click — just branding and legal cover.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 3 — HOW TO MAKE CHANGES
+  ════════════════════════════════════════ -->
+  <div class="section" id="how-to-change">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>How to Make Common Changes</h2>
+    </div>
+
+    <p>
+      The entire website lives in one file: <code>index.html</code>. Open it in any text editor
+      (VS Code, TextEdit, Notepad — anything works). All changes below are made in that file.
+    </p>
+
+    <div class="callout tip">
+      <div class="callout-title">🛠 Quick tip before you edit</div>
+      <p>
+        Use your editor's <strong>Find &amp; Replace</strong> (usually <code>Cmd+F</code> on Mac or <code>Ctrl+F</code> on Windows).
+        Search for the exact text you want to change — it's faster than scrolling through code.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Change phone number -->
+    <h3>📞 Change the Phone Number</h3>
+    <p>The phone number appears in two places. Search for <code>3522867134</code> and you'll find both.</p>
+
+    <div class="callout edit">
+      <div class="callout-title">✏️ How to edit</div>
+      <ol class="step-list">
+        <li>Open <code>index.html</code> in your text editor</li>
+        <li>Press <code>Cmd+F</code> (Mac) or <code>Ctrl+F</code> (Windows) and search for <code>3522867134</code></li>
+        <li>You'll find two hits — one in the <code>href="tel:..."</code> attribute, one as the display text</li>
+        <li>Update both to your new number (no spaces or dashes in the <code>href</code> version)</li>
+      </ol>
+    </div>
+
+    <p>Here's what the code looks like (before and after example):</p>
+    <pre><span class="comment"><!-- BEFORE --></span>
+&lt;a href="tel:<span class="yellow">3522867134</span>"&gt;📞 (<span class="yellow">352) 286-7134</span>&lt;/a&gt;
+
+<span class="comment"><!-- AFTER (new number: 503-555-1234) --></span>
+&lt;a href="tel:<span class="green">5035551234</span>"&gt;📞 (<span class="green">503) 555-1234</span>&lt;/a&gt;</pre>
+
+    <hr class="divider" />
+
+    <!-- Update headline -->
+    <h3>✍️ Update the Main Headline</h3>
+
+    <div class="callout edit">
+      <div class="callout-title">✏️ How to edit</div>
+      <ol class="step-list">
+        <li>Open <code>index.html</code></li>
+        <li>Search for <code>Turn Your Parking Lot Into a</code></li>
+        <li>You'll see the <code>&lt;h1&gt;</code> tag with the headline</li>
+        <li>Change the text — but keep the <code>&lt;span&gt;</code> tags if you want part of it in green</li>
+      </ol>
+    </div>
+
+    <pre><span class="comment"><!-- Current headline --></span>
+&lt;h1&gt;Turn Your Parking Lot Into a &lt;span&gt;<span class="green">Customer Magnet</span>&lt;/span&gt;&lt;/h1&gt;
+
+<span class="comment"><!-- Example: change the green part only --></span>
+&lt;h1&gt;Turn Your Parking Lot Into a &lt;span&gt;<span class="green">Revenue Machine</span>&lt;/span&gt;&lt;/h1&gt;</pre>
+
+    <div class="callout info">
+      <div class="callout-title">💡 The green part</div>
+      <p>
+        Whatever text is inside <code>&lt;span&gt;...&lt;/span&gt;</code> inside the headline will appear in green.
+        If you want the whole headline in white, just delete the <code>&lt;span&gt;</code> tags.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Add a benefit card -->
+    <h3>➕ Add a New Benefit Card</h3>
+    <p>
+      The "Why Sponsor" section has 6 cards in a grid. You can add a 7th (or more) by copying the pattern below.
+    </p>
+
+    <div class="callout edit">
+      <div class="callout-title">✏️ How to edit</div>
+      <ol class="step-list">
+        <li>Open <code>index.html</code></li>
+        <li>Search for <code>benefits-grid</code></li>
+        <li>You'll see the <code>&lt;div class="benefits-grid"&gt;</code> container</li>
+        <li>Scroll to the last <code>&lt;/div&gt;</code> before the closing <code>&lt;/div&gt;</code> of benefits-grid</li>
+        <li>Paste a new card block right before that closing tag</li>
+      </ol>
+    </div>
+
+    <p>Here's the exact code for a new card — copy, paste, and edit the emoji, title, and description:</p>
+
+    <pre>&lt;div class="benefit"&gt;
+  &lt;span class="benefit-icon"&gt;<span class="yellow">🚗</span>&lt;/span&gt;
+  &lt;h3&gt;<span class="green">Your Title Here</span>&lt;/h3&gt;
+  &lt;p&gt;<span class="blue">Your description text here. Keep it to 1–2 sentences.</span>&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+    <div class="callout tip">
+      <div class="callout-title">💡 Emoji picker</div>
+      <p>
+        On Mac: press <code>Cmd + Ctrl + Space</code> to open the emoji picker anywhere.
+        On Windows: press <code>Win + .</code> (Windows key + period).
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Change colors -->
+    <h3>🎨 Change the Colors</h3>
+    <p>
+      All colors are defined in one place at the top of the file inside a <code>:root</code> block.
+      Change a value there and it updates everywhere on the site automatically.
+    </p>
+
+    <div class="callout edit">
+      <div class="callout-title">✏️ How to edit</div>
+      <ol class="step-list">
+        <li>Open <code>index.html</code></li>
+        <li>Search for <code>:root</code></li>
+        <li>You'll see the color variables listed</li>
+        <li>Change the hex value (the <code>#xxxxxx</code> code) for any color you want to update</li>
+      </ol>
+    </div>
+
+    <pre><span class="comment">/* Color variables — change these to retheme the whole site */</span>
+:root {
+  <span class="blue">--green</span>:  <span class="green">#1db954</span>;  <span class="comment">/* Main accent: buttons, highlights, numbers */</span>
+  <span class="blue">--dark</span>:   <span class="green">#0d1117</span>;  <span class="comment">/* Darkest background (nav, footer, stats) */</span>
+  <span class="blue">--mid</span>:    <span class="green">#1a1a2e</span>;  <span class="comment">/* Hero &amp; CTA section background */</span>
+  <span class="blue">--light</span>:  <span class="green">#f5f7fa</span>;  <span class="comment">/* Light gray (How It Works background) */</span>
+  <span class="blue">--muted</span>:  <span class="green">#6b7280</span>;  <span class="comment">/* Gray body text / descriptions */</span>
+}</pre>
+
+    <div class="callout info">
+      <div class="callout-title">💡 Finding color codes</div>
+      <p>
+        Google "<strong>color picker</strong>" to get a hex code for any color you want.
+        Just paste the new <code>#xxxxxx</code> value in place of the old one.
+        For example, to change the green to blue: <code>--green: #0066ff;</code>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 4 — WHERE FILES LIVE
+  ════════════════════════════════════════ -->
+  <div class="section" id="files">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Where Files Live &amp; How GitHub Pages Works</h2>
+    </div>
+
+    <h3>Where the files are on your machine</h3>
+    <p>The website folder lives here on the Mac mini:</p>
+    <pre><code>~/.openclaw/workspace/standard_charging/website/</code></pre>
+
+    <p>Inside that folder, you'll find:</p>
+    <ul>
+      <li><code>index.html</code> — the entire website (the only file you need to edit)</li>
+      <li><code>.well-known/appspecific/com.tesla.3p.public-key.pem</code> — Tesla key file (see Section 5)</li>
+    </ul>
+
+    <h3>What GitHub Pages is (in plain English)</h3>
+    <p>
+      GitHub Pages is a free service from GitHub that turns a folder of files into a real live website.
+      Here's how it works, step by step:
+    </p>
+
+    <ol class="step-list">
+      <li>
+        You have a <strong>repository</strong> (a folder tracked by Git) that lives both on your machine and on GitHub's servers.
+      </li>
+      <li>
+        When you <strong>push</strong> changes to GitHub (upload your latest version), GitHub Pages automatically detects the update.
+      </li>
+      <li>
+        Within about 1–2 minutes, GitHub Pages rebuilds the live website at <strong>standardchargingllc.com</strong> using your updated files.
+      </li>
+      <li>
+        Anyone who visits the site now sees your new version. No hosting fees, no servers to manage.
+      </li>
+    </ol>
+
+    <div class="callout info">
+      <div class="callout-title">💡 Think of it like Google Docs</div>
+      <p>
+        You edit a file on your machine, then "sync" it (push to GitHub), and the live website updates automatically.
+        The difference from Google Docs is you have to manually push — it doesn't auto-sync.
+      </p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-title">⚠️ Changes don't go live until you push</div>
+      <p>
+        Editing <code>index.html</code> on your machine does <em>not</em> update the website.
+        You have to run the git push command (see Section 6). Until you do, the live site stays as-is.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 5 — TESLA KEY FILE
+  ════════════════════════════════════════ -->
+  <div class="section" id="tesla-key">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>The Tesla Key File — Don't Delete It</h2>
+    </div>
+
+    <p>Inside the website folder, there's a hidden-ish file at this path:</p>
+    <pre><code>.well-known/appspecific/com.tesla.3p.public-key.pem</code></pre>
+
+    <h3>What it is</h3>
+    <p>
+      This is a <strong>verification file</strong> required by Tesla's network. When Tesla's app or charging network
+      wants to confirm that standardchargingllc.com is a legitimate, trusted site (not a fake),
+      it checks for this file at that exact URL.
+    </p>
+    <p>
+      Think of it like a business license posted in your window. It's not something customers notice,
+      but the health inspector (Tesla's system) needs to see it there.
+    </p>
+
+    <h3>What happens if you delete it</h3>
+    <p>
+      Tesla's systems won't be able to verify the site. This could break future integration with
+      Tesla's charging network or app visibility — which is core to the business model.
+    </p>
+
+    <div class="callout danger">
+      <div class="callout-title">🚨 Don't delete this file</div>
+      <p>
+        Leave <code>.well-known/appspecific/com.tesla.3p.public-key.pem</code> exactly where it is.
+        Don't rename it, move it, or modify it. It needs to be accessible at that exact path for Tesla's verification to work.
+      </p>
+    </div>
+
+    <h3>Does it affect the website visually?</h3>
+    <p>
+      No. Visitors to the website never see it or interact with it. It's completely invisible to humans —
+      only Tesla's automated systems read it.
+    </p>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       SECTION 6 — HOW TO DEPLOY UPDATES
+  ════════════════════════════════════════ -->
+  <div class="section" id="deploy">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>How to Deploy Updates</h2>
+    </div>
+
+    <p>
+      After you've made changes to <code>index.html</code>, you need to push those changes to GitHub so the live website updates.
+      Here's the full process — three commands total.
+    </p>
+
+    <div class="callout info">
+      <div class="callout-title">💡 You only need to do this after you're done editing</div>
+      <p>
+        You can make 10 edits to the file and then run these commands once at the end.
+        You don't need to push after every single change.
+      </p>
+    </div>
+
+    <h3>Step 1 — Open Terminal and navigate to the website folder</h3>
+    <pre>cd ~/.openclaw/workspace/standard_charging/website</pre>
+
+    <h3>Step 2 — Stage your changes</h3>
+    <p>This tells Git "I want to include all my changes in the next save."</p>
+    <pre>git add .</pre>
+    <p>The <code>.</code> means "everything in this folder." You can also specify a single file like <code>git add index.html</code>.</p>
+
+    <h3>Step 3 — Commit (save a snapshot)</h3>
+    <p>This creates a saved checkpoint with a message describing what you changed. Write something short and descriptive.</p>
+    <pre>git commit -m "Updated phone number and hero headline"</pre>
+
+    <h3>Step 4 — Push to GitHub (go live)</h3>
+    <p>This uploads your snapshot to GitHub, which triggers the website to update within 1–2 minutes.</p>
+    <pre>git push</pre>
+
+    <hr class="divider" />
+
+    <h3>The full sequence, copy-paste ready:</h3>
+
+    <div class="callout edit">
+      <div class="callout-title">✏️ Run these three commands in order</div>
+      <pre style="background:#0a0e13; border:none; margin:0; padding:0;">git add .
+git commit -m "Your change description here"
+git push</pre>
+    </div>
+
+    <h3>How do I know it worked?</h3>
+    <p>
+      After running <code>git push</code>, wait about 60–90 seconds then refresh
+      <a href="https://standardchargingllc.com" target="_blank">standardchargingllc.com</a> in your browser.
+      Your changes should be live.
+    </p>
+    <p>
+      You can also check the <strong>Actions</strong> tab on your GitHub repository page to watch the deployment progress in real time.
+    </p>
+
+    <div class="callout warn">
+      <div class="callout-title">⚠️ If git push asks for a password</div>
+      <p>
+        GitHub no longer accepts passwords — it uses a Personal Access Token (PAT).
+        If you get a permission error, ask Ben to walk you through setting up a token or SSH key.
+        This only needs to be done once.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ── Footer ── -->
+  <div class="page-footer">
+    <p>
+      Generated by Artisan · Standard Charging LLC Website Guide · 2026-03-29<br />
+      <span style="color: #444d56;">This document is for internal use. Keep it in the workspace.</span>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
