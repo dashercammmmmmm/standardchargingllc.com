@@ -6,3 +6,6 @@
 /* Mobile menu hardening: full-width tap-friendly panel on phones. */
 @media(max-width:760px){.nav-inner{align-items:center;flex-direction:row}.brand{min-width:0}.menu{position:static;margin-left:auto}.menu button{min-height:44px;white-space:nowrap}.menu-content{position:fixed;top:64px;left:14px;right:14px;width:auto;min-width:0;max-height:calc(100vh - 86px);overflow:auto;z-index:60000}.menu-content a{min-height:44px;display:flex;align-items:center}}
 @media(max-width:420px){.shell{padding:0 1rem}.menu-content{top:58px;left:10px;right:10px;max-height:calc(100vh - 76px)}}
+
+/* Mobile menu portal: moves open menu to body so it cannot render behind page content. */
+body.site-menu-open::before{content:"";position:fixed;inset:0;background:rgba(15,23,42,.18);z-index:2147483646}.mobile-menu-portal{display:grid!important;position:fixed!important;top:64px!important;left:12px!important;right:12px!important;width:auto!important;min-width:0!important;max-height:calc(100dvh - 80px)!important;overflow:auto!important;padding:12px!important;background:#fff!important;border:1px solid var(--line)!important;border-radius:20px!important;box-shadow:0 28px 80px rgba(0,0,0,.34)!important;z-index:2147483647!important}.mobile-menu-portal a{min-height:44px;display:flex;align-items:center}

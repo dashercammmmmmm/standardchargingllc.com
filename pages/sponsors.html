@@ -21,4 +21,99 @@
   <article class="card"><h2>Sponsor-owned value</h2><p>Some sponsor work can make the sponsor's business the hero: website cleanup, local SEO, directory updates, Google Business Profile support, and social/video assets.</p></article>
   <article class="card"><h2>Claim control</h2><p>No sponsor, host, installation, uptime, or impact claims should be published until they are confirmed and approved.</p></article>
 </section>
-</main><footer class="footer"><div class="shell"><nav class="footer-sitemap" aria-label="Footer navigation"><a href="../index.html">Home</a><a href="hosts-become-destinations.html">Hosts</a><a href="partnership-model.html">Partnership model</a><a href="community-impact.html">Community Impact</a><a href="roadmap.html">Roadmap</a><a href="sponsors.html">Sponsors</a><a href="faq.html">FAQ</a><a href="support.html">Report a Charging Issue</a></nav><p>© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</p></div></footer><script>document.querySelectorAll('.menu button').forEach((button)=>{button.addEventListener('click',(event)=>{event.stopPropagation();const menu=button.closest('.menu');const open=menu.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));});});document.addEventListener('click',(event)=>{document.querySelectorAll('.menu.is-open').forEach((menu)=>{if(!menu.contains(event.target)){menu.classList.remove('is-open');const button=menu.querySelector('button');if(button)button.setAttribute('aria-expanded','false');}});});document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){document.querySelectorAll('.menu.is-open').forEach((menu)=>menu.classList.remove('is-open'));document.querySelectorAll('.menu button').forEach((button)=>button.setAttribute('aria-expanded','false'));}});</script></body></html>
+</main><footer class="footer"><div class="shell"><nav class="footer-sitemap" aria-label="Footer navigation"><a href="../index.html">Home</a><a href="hosts-become-destinations.html">Hosts</a><a href="partnership-model.html">Partnership model</a><a href="community-impact.html">Community Impact</a><a href="roadmap.html">Roadmap</a><a href="sponsors.html">Sponsors</a><a href="faq.html">FAQ</a><a href="support.html">Report a Charging Issue</a></nav><p>© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</p></div></footer><script>(function () {
+  const mobileQuery = window.matchMedia('(max-width: 760px)');
+  const placements = new WeakMap();
+
+  function panelsFor(menu) {
+    const saved = placements.get(menu);
+    const panel = menu.querySelector('.menu-panel, .menu-content') || (saved && saved.panel);
+    return panel;
+  }
+
+  function sendToBody(menu, panel) {
+    if (!placements.has(menu)) {
+      placements.set(menu, { parent: panel.parentNode, next: panel.nextSibling, panel });
+    }
+    if (mobileQuery.matches && panel.parentNode !== document.body) {
+      document.body.appendChild(panel);
+      panel.classList.add('mobile-menu-portal');
+    }
+  }
+
+  function sendHome(menu, panel) {
+    const saved = placements.get(menu);
+    panel.classList.remove('mobile-menu-portal');
+    if (saved && saved.parent && panel.parentNode !== saved.parent) {
+      saved.parent.insertBefore(panel, saved.next && saved.next.parentNode === saved.parent ? saved.next : null);
+    }
+  }
+
+  function closeMenu(menu) {
+    const button = menu.querySelector('button');
+    const panel = panelsFor(menu);
+    menu.classList.remove('is-open');
+    if (panel) {
+      panel.classList.remove('is-open');
+      sendHome(menu, panel);
+    }
+    if (button) button.setAttribute('aria-expanded', 'false');
+    if (!document.querySelector('.menu.is-open, .menu-wrap.is-open')) {
+      document.body.classList.remove('site-menu-open');
+    }
+  }
+
+  function openMenu(menu) {
+    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((other) => {
+      if (other !== menu) closeMenu(other);
+    });
+    const button = menu.querySelector('button');
+    const panel = panelsFor(menu);
+    if (!panel) return;
+    sendToBody(menu, panel);
+    menu.classList.add('is-open');
+    panel.classList.add('is-open');
+    document.body.classList.add('site-menu-open');
+    if (button) button.setAttribute('aria-expanded', 'true');
+  }
+
+  document.querySelectorAll('.menu button, .menu-toggle').forEach((button) => {
+    if (button.dataset.menuBound === 'true') return;
+    button.dataset.menuBound = 'true';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const menu = button.closest('.menu, .menu-wrap');
+      if (!menu) return;
+      if (menu.classList.contains('is-open')) closeMenu(menu);
+      else openMenu(menu);
+    });
+  });
+
+  document.querySelectorAll('.menu-panel, .menu-content').forEach((panel) => {
+    panel.addEventListener('click', (event) => {
+      if (!event.target.closest('a')) return;
+      const savedEntry = Array.from(document.querySelectorAll('.menu, .menu-wrap')).find((menu) => panelsFor(menu) === panel);
+      if (savedEntry) closeMenu(savedEntry);
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.menu, .menu-wrap, .mobile-menu-portal')) return;
+    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((menu) => {
+      const panel = panelsFor(menu);
+      if (!panel) return;
+      if (mobileQuery.matches) sendToBody(menu, panel);
+      else sendHome(menu, panel);
+    });
+  });
+})();</script>
+</body></html>
