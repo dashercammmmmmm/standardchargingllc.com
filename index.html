@@ -172,6 +172,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--green); box-shad
 textarea { resize: vertical; }
 #leadMsg { color: var(--muted); font-size: .95rem; }
 .footer { padding: 36px 0 56px; color: var(--muted); text-align: center; }
+.footer-sitemap { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 16px; margin:0 auto 16px; max-width:860px; line-height:1.5; }
+.footer-sitemap a, .footer-sitemap a:visited { color: var(--green-dark); font-weight:600; text-decoration:none; }
+.footer-sitemap a:hover, .footer-sitemap a:focus { color: var(--green); text-decoration:underline; }
 code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
 .is-hidden, [hidden] { display: none !important; }
 @media (max-width: 820px) {
@@ -179,10 +182,24 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
 }
 @media (max-width: 720px) {
   .container { width: min(100% - 28px, 1080px); }
-  .topbar { align-items: flex-start; gap: 10px; flex-direction: column; padding: 12px 0; }
+  .topbar { align-items: center; gap: 10px; flex-direction: row; padding: 12px 0; }
+  .brand { font-size: 1rem; min-width: 0; }
+  .menu-wrap { margin-left: auto; position: static; }
+  .menu-toggle { min-height: 44px; padding: 10px 14px; white-space: nowrap; }
+  .menu-panel {
+    position: fixed;
+    top: 64px;
+    left: 14px;
+    right: 14px;
+    width: auto;
+    min-width: 0;
+    max-height: calc(100vh - 86px);
+    overflow: auto;
+    z-index: 2000;
+  }
+  .menu-panel a { min-height: 44px; display:flex; align-items:center; }
   nav { gap: 10px; row-gap: 8px; width: 100%; }
   nav a { font-size: .92rem; padding: 6px 0; }
-  .brand { font-size: 1rem; }
   .hero {
     min-height: auto;
     text-align: left;
@@ -211,7 +228,7 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
 }
 @media (max-width: 420px) {
   .container { width: min(100% - 20px, 1080px); }
-  .menu-panel { right: 0; min-width: min(88vw, 320px); max-height: 78vh; overflow:auto; }
+  .menu-panel { top: 58px; left: 10px; right: 10px; min-width: 0; max-height: calc(100vh - 76px); overflow:auto; }
   .hero { padding: 36px 18px; border-radius: 20px; }
   h1 { font-size: clamp(2rem, 13vw, 2.7rem); }
   .topbar { position: static; }
@@ -293,6 +310,16 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
     </main>
 
     <footer class="container footer">
+      <nav class="footer-sitemap" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="pages/hosts-become-destinations.html">Hosts</a>
+        <a href="pages/partnership-model.html">Partnership model</a>
+        <a href="pages/community-impact.html">Community Impact</a>
+        <a href="pages/roadmap.html">Roadmap</a>
+        <a href="pages/sponsors.html">Sponsors</a>
+        <a href="pages/faq.html">FAQ</a>
+        <a href="pages/support.html">Report a Charging Issue</a>
+      </nav>
       <p>© <span id="year"></span> Standard Charging LLC · Oregon</p>
     </footer>
 
