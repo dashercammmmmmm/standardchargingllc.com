@@ -211,7 +211,7 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
 }
 @media (max-width: 420px) {
   .container { width: min(100% - 20px, 1080px); }
-  .menu-panel { right: 0; min-width: min(88vw, 300px); }
+  .menu-panel { right: 0; min-width: min(88vw, 320px); max-height: 78vh; overflow:auto; }
   .hero { padding: 36px 18px; border-radius: 20px; }
   h1 { font-size: clamp(2rem, 13vw, 2.7rem); }
   .topbar { position: static; }
@@ -233,12 +233,13 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
           <a href="pages/partnership-model.html">Partnership model</a>
           <a href="pages/community-impact.html">Community Impact</a>
           <a href="pages/roadmap.html">Roadmap</a>
+          <a href="pages/sponsors.html">Sponsors</a>
+          <a href="pages/faq.html">FAQ</a>
           <span class="menu-divider"></span>
           <a href="pages/ev-charging-101.html">EV Charging 101</a>
           <a href="pages/kw-vs-kwh.html">kW vs kWh</a>
           <a href="pages/charging-etiquette.html">Charging Etiquette</a>
           <a href="pages/support.html">Report a Charging Issue</a>
-          <a href="pages/hosts-sponsors.html">Hosts & Sponsors</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -292,6 +293,16 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
     </main>
 
     <footer class="container footer">
+      <nav class="footer-sitemap" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="pages/hosts-become-destinations.html">Hosts</a>
+        <a href="pages/partnership-model.html">Partnership model</a>
+        <a href="pages/community-impact.html">Community Impact</a>
+        <a href="pages/roadmap.html">Roadmap</a>
+        <a href="pages/sponsors.html">Sponsors</a>
+        <a href="pages/faq.html">FAQ</a>
+        <a href="pages/support.html">Report a Charging Issue</a>
+      </nav>
       <p>© <span id="year"></span> Standard Charging LLC · Oregon</p>
     </footer>
 
