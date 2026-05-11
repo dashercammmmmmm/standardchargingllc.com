@@ -40,7 +40,7 @@
     <section class="card">
       <h2>Report the issue</h2>
       <p class="muted">Send the details here. The form is routed to cam@standardchargingllc.com without opening your email app.</p>
-      <form class="stacked-form" data-email-form data-endpoint="https://formsubmit.co/ajax/cam@standardchargingllc.com" action="https://formsubmit.co/ajax/cam@standardchargingllc.com" method="POST" aria-describedby="issueMsg">
+      <form class="stacked-form" data-email-form data-endpoint="https://formsubmit.co/ajax/cam@standardchargingllc.com" action="https://formsubmit.co/ajax/cam@standardchargingllc.com" method="POST" enctype="multipart/form-data" aria-describedby="issueMsg">
         <input type="hidden" name="_subject" value="Standard Charging - Charging Issue Report" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
@@ -55,6 +55,8 @@
         <label>What happened?<textarea required name="issue_details" rows="5" placeholder="What did the charger, screen, app, cable, payment, or vehicle do?"></textarea></label>
         <label>What did the charger screen or app show?<textarea name="screen_message" rows="3" placeholder="Error code, app message, blank screen, unavailable, etc."></textarea></label>
         <label>Visible damage or safety concern?<textarea name="safety_concern" rows="3" placeholder="Damaged cable, exposed wiring, blocked access, tripping hazard, etc."></textarea></label>
+        <label>Photo or video<input type="file" name="attachment" accept="image/*,video/*" /></label>
+        <p class="muted">Attach one photo or short video if it is safe to capture. Large videos may take longer or fail to send; a short clip is best.</p>
         <div class="grid">
           <label>Your name<input required name="reporter_name" autocomplete="name" placeholder="Your name" /></label>
           <label>Best contact email<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
