@@ -1,4 +1,81 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Report a Charging Issue — Standard Charging</title><link rel="stylesheet" href="../site-page-style.css"></head><body><nav class="nav"><div class="shell nav-inner"><a class="brand" href="../WEBSITE-NEXT-PUSH-MENU-MAP.md">Standard Charging</a><div class="menu"><button aria-label="Open menu">☰ Menu</button><div class="menu-content"><a href="ev-charging-101.html">EV Charging 101</a><a href="kw-vs-kwh.html">kW vs kWh</a><a href="charging-etiquette.html">Charging Etiquette</a><a href="support.html">Report a Charging Issue</a><a href="hosts-sponsors.html">Hosts & Sponsors</a></div></div></div></nav><main class="shell"><section class="hero"><div class="eyebrow">Support path</div><h1>Report a Charging Issue</h1><p class="lead">A clean public support page that can connect to the Phase 1 CRM intake flow once approved.</p></section><section class="card"><h2>What to include</h2><ul><li>Site or business name</li><li>City</li><li>Charger ID or stall number if visible</li><li>What happened</li><li>What the screen/app showed</li><li>Photo if safe to take</li></ul><p><a class="button" href="#">Report a Charging Issue</a></p><p class="muted">Button destination is staged only until the support intake endpoint is approved.</p></section>
-<section class="callout">Electrical assessment and repairs are handled by qualified partners or the responsible equipment/network provider. Standard Charging routes the issue to the right support path.</section>
-</main><footer class="footer"><div class="shell">Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</div></footer></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report a Charging Issue — Standard Charging</title>
+  <link rel="stylesheet" href="../site-page-style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="../index.html">Standard Charging</a>
+      <div class="menu">
+        <button aria-label="Open menu">☰ Menu</button>
+        <div class="menu-content">
+          <a href="../index.html">Home</a>
+          <a href="ev-charging-101.html">EV Charging 101</a>
+          <a href="kw-vs-kwh.html">kW vs kWh</a>
+          <a href="charging-etiquette.html">Charging Etiquette</a>
+          <a href="support.html">Report a Charging Issue</a>
+          <a href="hosts-sponsors.html">Hosts & Sponsors</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Support path</div>
+      <h1>Report a Charging Issue</h1>
+      <p class="lead">Having trouble at a Standard Charging location? Send the details and we’ll route the issue to the right support path.</p>
+    </section>
+
+    <section class="card">
+      <h2>What to include</h2>
+      <ul>
+        <li>Site or business name</li>
+        <li>City</li>
+        <li>Charger ID or stall number if visible</li>
+        <li>Date and time the issue happened</li>
+        <li>What happened</li>
+        <li>What the charger screen or app showed</li>
+        <li>Whether there is visible damage or a safety concern</li>
+        <li>Photo if safe to take</li>
+      </ul>
+      <p><a class="button" href="mailto:cam@standardchargingllc.com?subject=Standard%20Charging%20-%20Charging%20Issue%20Report&body=Charging%20issue%20report%0A%0ASite%20or%20business%20name%3A%0ACity%3A%0ACharger%20ID%20or%20stall%20number%20if%20visible%3A%0ADate/time%20issue%20happened%3A%0AWhat%20happened%3A%0AWhat%20did%20the%20charger%20screen%20or%20app%20show%3F%3A%0AIs%20there%20visible%20damage%20or%20a%20safety%20concern%3F%3A%0APhoto%20attached%3F%20%28if%20safe%20to%20take%29%3A%0AYour%20name%3A%0ABest%20contact%20email/phone%3A%0A%0APlease%20do%20not%20touch%20damaged%20equipment%20or%20exposed%20wiring.%20Standard%20Charging%20will%20route%20the%20issue%20to%20the%20right%20support%20path.">Report a Charging Issue</a></p>
+      <p class="muted">The button opens an email draft with the details pre-filled so the issue can be documented and routed.</p>
+    </section>
+
+    <section class="callout">If equipment appears damaged or unsafe, do not touch exposed parts or move damaged cables. Electrical assessment and repairs are handled by qualified partners or the responsible equipment/network provider.</section>
+  </main>
+
+  <footer class="footer"><div class="shell">© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</div></footer>
+
+<script>
+document.querySelectorAll('.menu button').forEach((button)=>{
+  button.addEventListener('click',(event)=>{
+    event.stopPropagation();
+    const menu=button.closest('.menu');
+    const open=menu.classList.toggle('is-open');
+    button.setAttribute('aria-expanded',String(open));
+  });
+});
+document.addEventListener('click',(event)=>{
+  document.querySelectorAll('.menu.is-open').forEach((menu)=>{
+    if(!menu.contains(event.target)){
+      menu.classList.remove('is-open');
+      const button=menu.querySelector('button');
+      if(button) button.setAttribute('aria-expanded','false');
+    }
+  });
+});
+document.addEventListener('keydown',(event)=>{
+  if(event.key==='Escape'){
+    document.querySelectorAll('.menu.is-open').forEach((menu)=>menu.classList.remove('is-open'));
+    document.querySelectorAll('.menu button').forEach((button)=>button.setAttribute('aria-expanded','false'));
+  }
+});
+</script>
+</body>
+</html>

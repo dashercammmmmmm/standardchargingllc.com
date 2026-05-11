@@ -1,68 +1,488 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Standard Charging is building practical EV charging access for Albany, Corvallis, Salem, and nearby Oregon communities." />
-  <title>Standard Charging | Local EV Charging Access</title>
-  <link rel="stylesheet" href="site-page-style.css" />
-</head>
-<body>
-  <nav class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="index.html">Standard Charging</a>
-      <div class="menu">
-        <button aria-label="Open menu">☰ Menu</button>
-        <div class="menu-content">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Standard Charging</title>
+    <meta
+      name="description"
+      content="Partner with Standard Charging to bring reliable EV charging to Oregon destinations through community-first infrastructure, local sponsorships, and turnkey support."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-soft: #fbfbfd;
+  --ink: #1d1d1f;
+  --muted: rgba(29, 29, 31, 0.72);
+  --line: rgba(0, 0, 0, 0.10);
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --green-soft: #86efac;
+  --blue: #0071e3;
+  --blue-dark: #0066cc;
+  --shadow: rgba(0, 0, 0, 0.10) 0 18px 54px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+a { color: var(--green-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { width: min(1080px, 92vw); margin: 0 auto; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 52px;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(245, 245, 247, 0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.brand { display:flex; gap:10px; align-items:center; font-weight:600; font-size: 0.95rem; }
+.dot { width: 9px; height:9px; border-radius:50%; background: var(--green); box-shadow: 0 0 0 5px rgba(34,197,94,.12); }
+.menu-wrap { position: relative; display:flex; align-items:center; justify-content:flex-end; }
+.menu-toggle {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.88);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 10px 15px;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.06) 0 6px 18px;
+}
+.menu-toggle:hover, .menu-toggle:focus { background: #fff; outline: 2px solid rgba(34,197,94,.25); outline-offset: 2px; }
+.menu-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 270px;
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: rgba(0,0,0,.22) 0 26px 70px;
+  z-index: 1001;
+}
+.menu-panel.is-open { display: grid; }
+.menu-panel a { color: rgba(29,29,31,.76); font-size: .92rem; font-weight: 560; padding: 10px 12px; border-radius: 12px; }
+.menu-panel a:hover, .menu-panel a:focus { color: var(--ink); background: rgba(34,197,94,.10); text-decoration:none; }
+.menu-divider { height:1px; background: var(--line); margin: 5px 4px; }
+.hero {
+  margin-top: 18px;
+  padding: clamp(52px, 8vw, 96px) clamp(22px, 5vw, 64px);
+  border-radius: 30px;
+  text-align: center;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(34,197,94,.16), transparent 42%);
+}
+.hero > * { position: relative; z-index: 1; }
+.eyebrow { color: var(--green-dark); font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.2rem, 5.4vw, 4.55rem); margin: 8px auto 18px; line-height: 1.03; max-width: 980px; font-weight: 700; letter-spacing: -0.052em; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.04; letter-spacing: -0.045em; margin: 0 0 14px; }
+h3 { letter-spacing: -0.03em; }
+.hero > p:not(.eyebrow), .section-copy { max-width: 760px; margin: 0 auto; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.45; }
+main section { margin: 34px auto; }
+#community { margin-top: 52px; }
+#solution, #impact, #roadmap { padding-top: 44px; }
+.glass, .card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: var(--shadow);
+}
+.card { border-radius: 24px; padding: clamp(20px, 3vw, 32px); }
+.grid-3 { display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); }
+.grid-2 { display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+#solution .grid-2 { grid-template-columns: repeat(2, minmax(260px,1fr)); }
+.cta-row { display:flex; justify-content:center; gap:12px; margin: 28px 0; flex-wrap:wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 12px 20px;
+  min-height: 44px;
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:hover { transform: translateY(-1px); text-decoration:none; box-shadow: rgba(0,0,0,.12) 0 10px 24px; }
+.btn.primary { background: var(--green); color: #052e16; border-color: var(--green); }
+.btn.primary:hover { background: var(--green-dark); color: #ffffff; }
+.stats { display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); margin-top: 26px; }
+.stats article { background: rgba(255,255,255,.64); border-radius: 22px; padding: 20px; }
+.stats h3 { margin: 0 0 4px; font-size: 1.55rem; }
+.stats p, .card p { color: var(--muted); line-height: 1.5; }
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse: collapse; }
+th, td { padding: 14px; border-bottom: 1px solid var(--line); text-align:left; }
+.total td { font-weight: 700; }
+.timeline { display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); }
+.pay-grid { display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+.section-heading { text-align: center; margin: 0 auto 24px; }
+.contact-section { padding: 44px 0 22px; }
+.contact-card { max-width: 860px; margin: 0 auto; }
+label { display:flex; flex-direction:column; gap:8px; font-weight:600; color: var(--ink); }
+input, textarea, select {
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px 15px;
+  font: inherit;
+  background: rgba(255,255,255,.88);
+  color: var(--ink);
+  outline: none;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(34,197,94,.14); }
+textarea { resize: vertical; }
+#leadMsg { color: var(--muted); font-size: .95rem; }
+.footer { padding: 36px 0 56px; color: var(--muted); text-align: center; }
+code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
+.is-hidden, [hidden] { display: none !important; }
+@media (max-width: 820px) {
+  #solution .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .container { width: min(100% - 28px, 1080px); }
+  .topbar { align-items: flex-start; gap: 10px; flex-direction: column; padding: 12px 0; }
+  nav { gap: 10px; row-gap: 8px; width: 100%; }
+  nav a { font-size: .92rem; padding: 6px 0; }
+  .brand { font-size: 1rem; }
+  .hero {
+    min-height: auto;
+    text-align: left;
+    border-radius: 24px;
+    padding: 44px 22px;
+  }
+  .hero::before { background: radial-gradient(circle at 20% 0%, rgba(34,197,94,.16), transparent 46%); }
+  .cta-row { justify-content: flex-start; }
+  h1 {
+    margin-left: 0;
+    font-size: clamp(2rem, 10.5vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+  h2 { font-size: clamp(1.85rem, 9vw, 2.6rem); }
+  .hero > p:not(.eyebrow), .section-copy { font-size: 1.05rem; }
+  main section { margin: 24px auto; }
+  #community { margin-top: 32px; }
+  #solution, #impact, #roadmap { padding-top: 28px; }
+  .card { border-radius: 20px; padding: 20px; }
+  .stats article { padding: 18px; }
+  .grid-2, .grid-3, .stats, .timeline, .pay-grid { grid-template-columns: 1fr; }
+  th, td { padding: 11px 9px; font-size: .92rem; }
+  .contact-section { padding: 30px 0 12px; }
+  .btn { width: 100%; }
+}
+@media (max-width: 420px) {
+  .container { width: min(100% - 20px, 1080px); }
+  .menu-panel { right: 0; min-width: min(88vw, 300px); }
+  .hero { padding: 36px 18px; border-radius: 20px; }
+  h1 { font-size: clamp(2rem, 13vw, 2.7rem); }
+  .topbar { position: static; }
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="topbar container">
+      <div class="brand">
+        <div class="dot"></div>
+        <span>Standard Charging</span>
+      </div>
+      <div class="menu-wrap">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteMenu">☰ Menu</button>
+        <nav class="menu-panel" id="siteMenu" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="pages/ev-charging-101.html">EV Charging 101</a>
           <a href="pages/kw-vs-kwh.html">kW vs kWh</a>
           <a href="pages/charging-etiquette.html">Charging Etiquette</a>
           <a href="pages/support.html">Report a Charging Issue</a>
           <a href="pages/hosts-sponsors.html">Hosts & Sponsors</a>
-        </div>
+          <span class="menu-divider"></span>
+          <a href="#solution">Solution</a>
+          <a href="#impact">Impact</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <main class="shell">
-    <section class="hero">
-      <div class="eyebrow">Albany · Corvallis · Salem</div>
-      <h1>Practical EV charging access for local Oregon communities.</h1>
-      <p class="lead">Standard Charging coordinates local charging opportunities, host and sponsor relationships, and project documentation so charging can fit naturally into everyday destinations.</p>
-      <p><a class="button" href="pages/hosts-sponsors.html">Explore hosting or sponsorship</a></p>
-    </section>
+    <main>
+      <section class="hero container glass">
+        <p class="eyebrow">Oregon-first EV Charging Network</p>
+        <h1>Build the charging network your community can count on.</h1>
+        <p>
+          Standard Charging helps Oregon destinations add reliable Level 2 charging through local partnerships.
+          Hosts become useful stops, sponsors fund visible infrastructure, and drivers spend more time in the communities they visit.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Start a Partnership</a>
+          <a class="btn" href="mailto:cam@standardchargingllc.com">Email Cam</a>
+        </div>
+        <div class="stats">
+          <article>
+            <h3>Community-first</h3>
+            <p>Charging that supports local businesses, visitors, employees, and everyday drivers.</p>
+          </article>
+          <article>
+            <h3>Turnkey support</h3>
+            <p>Planning, site coordination, installation support, operations, and reporting with one accountable partner.</p>
+          </article>
+          <article>
+            <h3>Sponsored access</h3>
+            <p>Local brands help fund useful charging access instead of another forgettable ad.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="grid">
-      <article class="card">
-        <h2>For drivers</h2>
-        <p>Learn the basics of EV charging, what affects charging speed, and how to report issues safely.</p>
-        <p><a href="pages/ev-charging-101.html">Read EV Charging 101 →</a></p>
-      </article>
-      <article class="card">
-        <h2>For host sites</h2>
-        <p>Understand how local businesses and properties can explore charging as a useful amenity.</p>
-        <p><a href="pages/hosts-sponsors.html">View host information →</a></p>
-      </article>
-      <article class="card">
-        <h2>For sponsors</h2>
-        <p>Support useful local infrastructure and receive practical community marketing assets in return.</p>
-        <p><a href="pages/hosts-sponsors.html">View sponsor role →</a></p>
-      </article>
-      <article class="card">
-        <h2>Need help?</h2>
-        <p>Use the support page to report a charging issue once Standard Charging locations and intake are live.</p>
-        <p><a href="pages/support.html">Report a Charging Issue →</a></p>
-      </article>
-    </section>
+      <section class="container grid-3" id="community">
+        <article class="card">
+          <h2>Hosts become destinations</h2>
+          <p>Charging gives guests, employees, and travelers another reason to stop, stay, and come back.</p>
+        </article>
+        <article class="card">
+          <h2>Sponsors fund something real</h2>
+          <p>Local brands can put their name behind useful infrastructure people see, use, and remember.</p>
+        </article>
+        <article class="card">
+          <h2>Drivers trust the route</h2>
+          <p>Reliable charging helps everyday EV drivers visit more local places with confidence.</p>
+        </article>
+      </section>
 
-    <section class="callout">
-      <strong>Installer boundary:</strong> Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.
-    </section>
-  </main>
+      <section class="container" id="solution">
+        <h2>How the partnership works</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>We plan with the site</h3>
+            <p>We help evaluate the location, charging fit, installation path, and practical operating needs before a project moves forward.</p>
+          </article>
+          <article class="card">
+            <h3>Local sponsors create access</h3>
+            <p>Sponsor support can help make charging more approachable while giving local businesses visible community presence.</p>
+          </article>
+          <article class="card">
+            <h3>Reliable hardware, simple experience</h3>
+            <p>We focus on dependable Level 2 charging that is easy for drivers to understand and easy for hosts to support.</p>
+          </article>
+          <article class="card">
+            <h3>Clear reporting</h3>
+            <p>Partners get straightforward updates on usage, uptime, sponsor visibility, and what the site is learning over time.</p>
+          </article>
+        </div>
+      </section>
 
-  <footer class="footer">
-    <div class="shell">© Standard Charging. Built for clean, practical local EV charging education and community infrastructure planning.</div>
-  </footer>
-</body>
+      <section class="container" id="impact">
+        <h2>Community Impact</h2>
+        <div class="grid-2 impact-grid">
+          <article class="card">
+            <h3>More useful local stops</h3>
+            <p>Charging turns everyday destinations into places where people can plug in, spend time, and support nearby businesses.</p>
+          </article>
+          <article class="card">
+            <h3>Infrastructure people can see</h3>
+            <p>Sponsors support a visible community asset instead of another short-lived ad impression.</p>
+          </article>
+          <article class="card">
+            <h3>Confidence for EV drivers</h3>
+            <p>Reliable Level 2 charging helps drivers choose local routes, local shops, and local services with less friction.</p>
+          </article>
+          <article class="card">
+            <h3>A repeatable Oregon model</h3>
+            <p>Each successful site helps build a stronger regional network for hosts, sponsors, visitors, and residents.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container" id="roadmap">
+        <h2>Roadmap</h2>
+        <div class="timeline">
+          <article class="card"><h3>Pilot site</h3><p>Partner with the right first host, complete site planning, and launch a reliable charging experience people can trust.</p></article>
+          <article class="card"><h3>Local partner network</h3><p>Bring in sponsors, service partners, and destination businesses that want to invest in useful community infrastructure.</p></article>
+          <article class="card"><h3>Oregon-first expansion</h3><p>Use what we learn from each site to build a stronger, more connected regional charging network.</p></article>
+        </div>
+      </section>
+
+      <section class="container glass is-hidden" id="pay" hidden aria-hidden="true">
+        <h2>Pay Through the Website</h2>
+        <p>Use Stripe Payment Links for immediate checkout (no custom backend required for MVP).</p>
+        <div class="pay-grid">
+          <article class="card">
+            <h3>Host Pilot Deposit</h3>
+            <p>Secure your site review + deployment planning slot.</p>
+            <button class="btn primary" data-link="hostDeposit">Pay Host Deposit</button>
+          </article>
+          <article class="card">
+            <h3>Sponsor Package</h3>
+            <p>Fund charging allowances and receive reporting + placements.</p>
+            <button class="btn primary" data-link="sponsorPackage">Become a Sponsor</button>
+          </article>
+          <article class="card">
+            <h3>Operations Plan</h3>
+            <p>Monthly managed Ops & Support plan checkout.</p>
+            <button class="btn primary" data-link="opsPlan">Start Ops Plan</button>
+          </article>
+        </div>
+        <small>Replace links in <code>config.js</code> before publishing.</small>
+      </section>
+
+      <section class="container contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Tell us what you’re looking for.</h2>
+          <p class="section-copy">Share a few details about your business, location, community goals, or sponsorship interest. We’ll follow up directly at <a href="mailto:cam@standardchargingllc.com">cam@standardchargingllc.com</a>.</p>
+        </div>
+        <form class="card contact-card" id="leadForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="Standard Charging Website Inquiry" />
+          <div class="grid-2">
+            <label>Business name<input required name="businessName" autocomplete="organization" placeholder="Your business or organization" /></label>
+            <label>Email address<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
+          </div>
+          <label>What are you looking for?<textarea required name="message" rows="6" placeholder="Tell us about your location, community goals, sponsorship interest, EV charging needs, or timeline."></textarea></label>
+          <button class="btn primary" type="submit">Send Inquiry</button>
+          <p id="leadMsg">Inquiries go to <a href="mailto:cam@standardchargingllc.com">cam@standardchargingllc.com</a>.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>© <span id="year"></span> Standard Charging LLC · Oregon</p>
+    </footer>
+
+    <script>
+window.STANDARD_CHARGING_CONFIG = {
+  contactEmail: 'cam@standardchargingllc.com',
+  formEndpoint: 'https://formspree.io/f/REPLACE_WITH_FORM_ID',
+  paymentLinks: {
+    hostDeposit: 'https://buy.stripe.com/replace-me-host-deposit',
+    sponsorPackage: 'https://buy.stripe.com/replace-me-sponsor-package',
+    opsPlan: 'https://buy.stripe.com/replace-me-ops-plan'
+  }
+};
+
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('siteMenu');
+  if (!toggle || !menu) return;
+
+  const closeMenu = () => {
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) closeMenu();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.menu-wrap')) closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const config = window.STANDARD_CHARGING_CONFIG || {};
+const links = config.paymentLinks || {};
+
+document.querySelectorAll('[data-link]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.link;
+    const href = links[key];
+    if (!href || href.includes('replace-me')) {
+      alert('Payment link not configured yet. Add live Stripe links in config.js');
+      return;
+    }
+    window.open(href, '_blank', 'noopener,noreferrer');
+  });
+});
+
+const form = document.getElementById('leadForm');
+const msg = document.getElementById('leadMsg');
+
+form.addEventListener('submit', async (e) => {
+  const endpoint = config.formEndpoint || form.getAttribute('action');
+  const email = config.contactEmail || 'cam@standardchargingllc.com';
+
+  if (!endpoint || endpoint.includes('REPLACE_WITH_FORM_ID')) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const subject = encodeURIComponent('Standard Charging Website Inquiry');
+    const body = encodeURIComponent(
+      `Business name: ${data.get('businessName')}
+Email: ${data.get('email')}
+
+Looking for:
+${data.get('message')}`
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    msg.textContent = 'Launching email draft. Real web-form delivery needs the Squarespace/Formspree endpoint added.';
+    return;
+  }
+
+  e.preventDefault();
+  msg.textContent = 'Sending inquiry...';
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' }
+  });
+
+  if (response.ok) {
+    form.reset();
+    msg.textContent = 'Thanks — your inquiry was sent.';
+  } else {
+    msg.textContent = `Something went wrong. Please email ${email}.`;
+  }
+});
+
+    </script>
+  </body>
 </html>
