@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partnership model — Standard Charging</title>
+  <link rel="stylesheet" href="../site-page-style.css">
+</head>
+<body>
+  <nav class="nav"><div class="shell nav-inner"><a class="brand" href="../index.html">Standard Charging</a><div class="menu"><button aria-label="Open menu" aria-expanded="false">☰ Menu</button><div class="menu-content">
+          <a href="../index.html">Home</a>
+          <a href="hosts-become-destinations.html">Hosts become destinations</a>
+          <a href="partnership-model.html">Partnership model</a>
+          <a href="community-impact.html">Community Impact</a>
+          <a href="roadmap.html">Roadmap</a>
+          <span class="menu-divider"></span>
+          <a href="ev-charging-101.html">EV Charging 101</a>
+          <a href="kw-vs-kwh.html">kW vs kWh</a>
+          <a href="charging-etiquette.html">Charging Etiquette</a>
+          <a href="support.html">Report a Charging Issue</a>
+          <a href="hosts-sponsors.html">Hosts & Sponsors</a>
+  </div></div></div></nav>
+  <main class="shell">
+    <section class="hero"><div class="eyebrow">How it works</div><h1>Partnership model</h1><p class="lead">Standard Charging is built around hosts, sponsors, installer partners, and clear support paths.</p></section>
+    <section class="grid">
+      <article class="card"><h2>1. Site fit</h2><p>We start by understanding the location, driver dwell time, parking pattern, visibility, power access, and whether charging would create real community usefulness.</p></article>
+      <article class="card"><h2>2. Sponsor support</h2><p>Local sponsors can help fund visible infrastructure while receiving useful community marketing assets, not just another ad placement.</p></article>
+      <article class="card"><h2>3. Licensed installation review</h2><p>Electrical assessment, permitting, utility coordination, and installation are handled by qualified licensed partners. Standard Charging is not an electrical contractor.</p></article>
+      <article class="card"><h2>4. Ongoing reporting</h2><p>As sites come online, partners should receive simple reporting on usage, uptime, issues, sponsor visibility, and lessons learned.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell">© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</div></footer>
+<script>document.querySelectorAll('.menu button').forEach((button)=>{button.addEventListener('click',(event)=>{event.stopPropagation();const menu=button.closest('.menu');const open=menu.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));});});document.addEventListener('click',(event)=>{document.querySelectorAll('.menu.is-open').forEach((menu)=>{if(!menu.contains(event.target)){menu.classList.remove('is-open');const button=menu.querySelector('button');if(button)button.setAttribute('aria-expanded','false');}});});document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){document.querySelectorAll('.menu.is-open').forEach((menu)=>menu.classList.remove('is-open'));document.querySelectorAll('.menu button').forEach((button)=>button.setAttribute('aria-expanded','false'));}});</script>
+</body>
+</html>

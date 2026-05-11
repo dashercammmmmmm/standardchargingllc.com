@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community Impact — Standard Charging</title>
+  <link rel="stylesheet" href="../site-page-style.css">
+</head>
+<body>
+  <nav class="nav"><div class="shell nav-inner"><a class="brand" href="../index.html">Standard Charging</a><div class="menu"><button aria-label="Open menu" aria-expanded="false">☰ Menu</button><div class="menu-content">
+          <a href="../index.html">Home</a>
+          <a href="hosts-become-destinations.html">Hosts become destinations</a>
+          <a href="partnership-model.html">Partnership model</a>
+          <a href="community-impact.html">Community Impact</a>
+          <a href="roadmap.html">Roadmap</a>
+          <span class="menu-divider"></span>
+          <a href="ev-charging-101.html">EV Charging 101</a>
+          <a href="kw-vs-kwh.html">kW vs kWh</a>
+          <a href="charging-etiquette.html">Charging Etiquette</a>
+          <a href="support.html">Report a Charging Issue</a>
+          <a href="hosts-sponsors.html">Hosts & Sponsors</a>
+  </div></div></div></nav>
+  <main class="shell">
+    <section class="hero"><div class="eyebrow">Why local charging helps</div><h1>Community Impact</h1><p class="lead">Reliable charging can support drivers, hosts, sponsors, visitors, and nearby businesses at the same time.</p></section>
+    <section class="grid">
+      <article class="card"><h2>More useful local stops</h2><p>Charging turns everyday destinations into places where people can plug in, spend time, and support nearby businesses.</p></article>
+      <article class="card"><h2>Infrastructure people can see</h2><p>Sponsors support a visible community asset instead of another short-lived ad impression.</p></article>
+      <article class="card"><h2>Confidence for EV drivers</h2><p>Reliable Level 2 charging helps drivers choose local routes, local shops, and local services with less friction.</p></article>
+      <article class="card"><h2>Local learning loop</h2><p>Each site teaches what drivers need, what hosts value, and what support process keeps charging dependable.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell">© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</div></footer>
+<script>document.querySelectorAll('.menu button').forEach((button)=>{button.addEventListener('click',(event)=>{event.stopPropagation();const menu=button.closest('.menu');const open=menu.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));});});document.addEventListener('click',(event)=>{document.querySelectorAll('.menu.is-open').forEach((menu)=>{if(!menu.contains(event.target)){menu.classList.remove('is-open');const button=menu.querySelector('button');if(button)button.setAttribute('aria-expanded','false');}});});document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){document.querySelectorAll('.menu.is-open').forEach((menu)=>menu.classList.remove('is-open'));document.querySelectorAll('.menu button').forEach((button)=>button.setAttribute('aria-expanded','false'));}});</script>
+</body>
+</html>
