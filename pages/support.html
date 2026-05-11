@@ -38,120 +38,37 @@
     </section>
 
     <section class="card">
-      <h2>What to include</h2>
-      <ul>
-        <li>Site or business name</li>
-        <li>City</li>
-        <li>Charger ID or stall number if visible</li>
-        <li>Date and time the issue happened</li>
-        <li>What happened</li>
-        <li>What the charger screen or app showed</li>
-        <li>Whether there is visible damage or a safety concern</li>
-        <li>Photo if safe to take</li>
-      </ul>
-      <p><a class="button" href="mailto:cam@standardchargingllc.com?subject=Standard%20Charging%20-%20Charging%20Issue%20Report&body=Charging%20issue%20report%0A%0ASite%20or%20business%20name%3A%0ACity%3A%0ACharger%20ID%20or%20stall%20number%20if%20visible%3A%0ADate/time%20issue%20happened%3A%0AWhat%20happened%3A%0AWhat%20did%20the%20charger%20screen%20or%20app%20show%3F%3A%0AIs%20there%20visible%20damage%20or%20a%20safety%20concern%3F%3A%0APhoto%20attached%3F%20%28if%20safe%20to%20take%29%3A%0AYour%20name%3A%0ABest%20contact%20email/phone%3A%0A%0APlease%20do%20not%20touch%20damaged%20equipment%20or%20exposed%20wiring.%20Standard%20Charging%20will%20route%20the%20issue%20to%20the%20right%20support%20path.">Report a Charging Issue</a></p>
-      <p class="muted">The button opens an email draft with the details pre-filled so the issue can be documented and routed.</p>
+      <h2>Report the issue</h2>
+      <p class="muted">Send the details here. The form is routed to cam@standardchargingllc.com without opening your email app.</p>
+      <form class="stacked-form" data-email-form data-endpoint="https://formsubmit.co/ajax/cam@standardchargingllc.com" action="https://formsubmit.co/ajax/cam@standardchargingllc.com" method="POST" aria-describedby="issueMsg">
+        <input type="hidden" name="_subject" value="Standard Charging - Charging Issue Report" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <div class="grid">
+          <label>Site or business name<input required name="site_name" autocomplete="organization" placeholder="Business or site name" /></label>
+          <label>City<input required name="city" autocomplete="address-level2" placeholder="City" /></label>
+        </div>
+        <div class="grid">
+          <label>Charger ID or stall number<input name="charger_id" placeholder="If visible" /></label>
+          <label>Date/time issue happened<input required name="issue_time" placeholder="Example: today around 2:30 PM" /></label>
+        </div>
+        <label>What happened?<textarea required name="issue_details" rows="5" placeholder="What did the charger, screen, app, cable, payment, or vehicle do?"></textarea></label>
+        <label>What did the charger screen or app show?<textarea name="screen_message" rows="3" placeholder="Error code, app message, blank screen, unavailable, etc."></textarea></label>
+        <label>Visible damage or safety concern?<textarea name="safety_concern" rows="3" placeholder="Damaged cable, exposed wiring, blocked access, tripping hazard, etc."></textarea></label>
+        <div class="grid">
+          <label>Your name<input required name="reporter_name" autocomplete="name" placeholder="Your name" /></label>
+          <label>Best contact email<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
+        </div>
+        <button class="button" type="submit">Send Issue Report</button>
+        <p class="muted" id="issueMsg">If equipment appears damaged or unsafe, do not touch exposed parts. The form sends the report directly to cam@standardchargingllc.com.</p>
+      </form>
     </section>
 
     <section class="callout">If equipment appears damaged or unsafe, do not touch exposed parts or move damaged cables. Electrical assessment and repairs are handled by qualified partners or the responsible equipment/network provider.</section>
   </main>
 
   <footer class="footer"><div class="shell"><nav class="footer-sitemap" aria-label="Footer navigation"><a href="../index.html">Home</a><a href="hosts-become-destinations.html">Hosts</a><a href="partnership-model.html">Partnership model</a><a href="community-impact.html">Community Impact</a><a href="roadmap.html">Roadmap</a><a href="sponsors.html">Sponsors</a><a href="faq.html">FAQ</a><a href="support.html">Report a Charging Issue</a></nav><p>© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</p></div></footer>
-
-<script>(function () {
-  const mobileQuery = window.matchMedia('(max-width: 760px)');
-  const placements = new WeakMap();
-
-  function panelsFor(menu) {
-    const saved = placements.get(menu);
-    const panel = menu.querySelector('.menu-panel, .menu-content') || (saved && saved.panel);
-    return panel;
-  }
-
-  function sendToBody(menu, panel) {
-    if (!placements.has(menu)) {
-      placements.set(menu, { parent: panel.parentNode, next: panel.nextSibling, panel });
-    }
-    if (mobileQuery.matches && panel.parentNode !== document.body) {
-      document.body.appendChild(panel);
-      panel.classList.add('mobile-menu-portal');
-    }
-  }
-
-  function sendHome(menu, panel) {
-    const saved = placements.get(menu);
-    panel.classList.remove('mobile-menu-portal');
-    if (saved && saved.parent && panel.parentNode !== saved.parent) {
-      saved.parent.insertBefore(panel, saved.next && saved.next.parentNode === saved.parent ? saved.next : null);
-    }
-  }
-
-  function closeMenu(menu) {
-    const button = menu.querySelector('button');
-    const panel = panelsFor(menu);
-    menu.classList.remove('is-open');
-    if (panel) {
-      panel.classList.remove('is-open');
-      sendHome(menu, panel);
-    }
-    if (button) button.setAttribute('aria-expanded', 'false');
-    if (!document.querySelector('.menu.is-open, .menu-wrap.is-open')) {
-      document.body.classList.remove('site-menu-open');
-    }
-  }
-
-  function openMenu(menu) {
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((other) => {
-      if (other !== menu) closeMenu(other);
-    });
-    const button = menu.querySelector('button');
-    const panel = panelsFor(menu);
-    if (!panel) return;
-    sendToBody(menu, panel);
-    menu.classList.add('is-open');
-    panel.classList.add('is-open');
-    document.body.classList.add('site-menu-open');
-    if (button) button.setAttribute('aria-expanded', 'true');
-  }
-
-  document.querySelectorAll('.menu button, .menu-toggle').forEach((button) => {
-    if (button.dataset.menuBound === 'true') return;
-    button.dataset.menuBound = 'true';
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      const menu = button.closest('.menu, .menu-wrap');
-      if (!menu) return;
-      if (menu.classList.contains('is-open')) closeMenu(menu);
-      else openMenu(menu);
-    });
-  });
-
-  document.querySelectorAll('.menu-panel, .menu-content').forEach((panel) => {
-    panel.addEventListener('click', (event) => {
-      if (!event.target.closest('a')) return;
-      const savedEntry = Array.from(document.querySelectorAll('.menu, .menu-wrap')).find((menu) => panelsFor(menu) === panel);
-      if (savedEntry) closeMenu(savedEntry);
-    });
-  });
-
-  document.addEventListener('click', (event) => {
-    if (event.target.closest('.menu, .menu-wrap, .mobile-menu-portal')) return;
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
-  });
-
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((menu) => {
-      const panel = panelsFor(menu);
-      if (!panel) return;
-      if (mobileQuery.matches) sendToBody(menu, panel);
-      else sendHome(menu, panel);
-    });
-  });
-})();</script>
+<script src="../site-menu.js"></script>
+<script src="../site-forms.js"></script>
 </body>
 </html>

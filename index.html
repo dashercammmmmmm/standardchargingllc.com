@@ -298,17 +298,19 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
           <h2>Tell us what you’re looking for.</h2>
-          <p class="section-copy">Share a few details about your business, location, community goals, or sponsorship interest. We’ll follow up directly at <a href="mailto:cam@standardchargingllc.com">cam@standardchargingllc.com</a>.</p>
+          <p class="section-copy">Share a few details about your business, location, community goals, or sponsorship interest. We’ll follow up directly by email.</p>
         </div>
-        <form class="card contact-card" id="leadForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <form class="card contact-card" id="leadForm" action="https://formsubmit.co/ajax/cam@standardchargingllc.com" method="POST" data-email-form data-endpoint="https://formsubmit.co/ajax/cam@standardchargingllc.com" aria-describedby="leadMsg">
           <input type="hidden" name="_subject" value="Standard Charging Website Inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <div class="grid-2">
             <label>Business name<input required name="businessName" autocomplete="organization" placeholder="Your business or organization" /></label>
             <label>Email address<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
           </div>
           <label>What are you looking for?<textarea required name="message" rows="6" placeholder="Tell us about your location, community goals, sponsorship interest, EV charging needs, or timeline."></textarea></label>
           <button class="btn primary" type="submit">Send Inquiry</button>
-          <p id="leadMsg">Inquiries go to <a href="mailto:cam@standardchargingllc.com">cam@standardchargingllc.com</a>.</p>
+          <p id="leadMsg">This form sends directly to cam@standardchargingllc.com.</p>
         </form>
       </section>
     </main>
@@ -330,7 +332,7 @@ code { background:#eef2ff; padding: 2px 6px; border-radius:6px; }
     <script>
 window.STANDARD_CHARGING_CONFIG = {
   contactEmail: 'cam@standardchargingllc.com',
-  formEndpoint: 'https://formspree.io/f/REPLACE_WITH_FORM_ID',
+  formEndpoint: 'https://formsubmit.co/ajax/cam@standardchargingllc.com',
   paymentLinks: {
     hostDeposit: 'https://buy.stripe.com/replace-me-host-deposit',
     sponsorPackage: 'https://buy.stripe.com/replace-me-sponsor-package',
@@ -340,158 +342,10 @@ window.STANDARD_CHARGING_CONFIG = {
 
     </script>
     <script>
-(function () {
-  const mobileQuery = window.matchMedia('(max-width: 760px)');
-  const placements = new WeakMap();
-
-  function panelsFor(menu) {
-    const saved = placements.get(menu);
-    const panel = menu.querySelector('.menu-panel, .menu-content') || (saved && saved.panel);
-    return panel;
-  }
-
-  function sendToBody(menu, panel) {
-    if (!placements.has(menu)) {
-      placements.set(menu, { parent: panel.parentNode, next: panel.nextSibling, panel });
-    }
-    if (mobileQuery.matches && panel.parentNode !== document.body) {
-      document.body.appendChild(panel);
-      panel.classList.add('mobile-menu-portal');
-    }
-  }
-
-  function sendHome(menu, panel) {
-    const saved = placements.get(menu);
-    panel.classList.remove('mobile-menu-portal');
-    if (saved && saved.parent && panel.parentNode !== saved.parent) {
-      saved.parent.insertBefore(panel, saved.next && saved.next.parentNode === saved.parent ? saved.next : null);
-    }
-  }
-
-  function closeMenu(menu) {
-    const button = menu.querySelector('button');
-    const panel = panelsFor(menu);
-    menu.classList.remove('is-open');
-    if (panel) {
-      panel.classList.remove('is-open');
-      sendHome(menu, panel);
-    }
-    if (button) button.setAttribute('aria-expanded', 'false');
-    if (!document.querySelector('.menu.is-open, .menu-wrap.is-open')) {
-      document.body.classList.remove('site-menu-open');
-    }
-  }
-
-  function openMenu(menu) {
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((other) => {
-      if (other !== menu) closeMenu(other);
-    });
-    const button = menu.querySelector('button');
-    const panel = panelsFor(menu);
-    if (!panel) return;
-    sendToBody(menu, panel);
-    menu.classList.add('is-open');
-    panel.classList.add('is-open');
-    document.body.classList.add('site-menu-open');
-    if (button) button.setAttribute('aria-expanded', 'true');
-  }
-
-  document.querySelectorAll('.menu button, .menu-toggle').forEach((button) => {
-    if (button.dataset.menuBound === 'true') return;
-    button.dataset.menuBound = 'true';
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      const menu = button.closest('.menu, .menu-wrap');
-      if (!menu) return;
-      if (menu.classList.contains('is-open')) closeMenu(menu);
-      else openMenu(menu);
-    });
-  });
-
-  document.querySelectorAll('.menu-panel, .menu-content').forEach((panel) => {
-    panel.addEventListener('click', (event) => {
-      if (!event.target.closest('a')) return;
-      const savedEntry = Array.from(document.querySelectorAll('.menu, .menu-wrap')).find((menu) => panelsFor(menu) === panel);
-      if (savedEntry) closeMenu(savedEntry);
-    });
-  });
-
-  document.addEventListener('click', (event) => {
-    if (event.target.closest('.menu, .menu-wrap, .mobile-menu-portal')) return;
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach(closeMenu);
-  });
-
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.menu.is-open, .menu-wrap.is-open').forEach((menu) => {
-      const panel = panelsFor(menu);
-      if (!panel) return;
-      if (mobileQuery.matches) sendToBody(menu, panel);
-      else sendHome(menu, panel);
-    });
-  });
-})();
-
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const config = window.STANDARD_CHARGING_CONFIG || {};
-const links = config.paymentLinks || {};
-
-document.querySelectorAll('[data-link]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const key = btn.dataset.link;
-    const href = links[key];
-    if (!href || href.includes('replace-me')) {
-      alert('Payment link not configured yet. Add live Stripe links in config.js');
-      return;
-    }
-    window.open(href, '_blank', 'noopener,noreferrer');
-  });
-});
-
-const form = document.getElementById('leadForm');
-const msg = document.getElementById('leadMsg');
-
-form.addEventListener('submit', async (e) => {
-  const endpoint = config.formEndpoint || form.getAttribute('action');
-  const email = config.contactEmail || 'cam@standardchargingllc.com';
-
-  if (!endpoint || endpoint.includes('REPLACE_WITH_FORM_ID')) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const subject = encodeURIComponent('Standard Charging Website Inquiry');
-    const body = encodeURIComponent(
-      `Business name: ${data.get('businessName')}
-Email: ${data.get('email')}
-
-Looking for:
-${data.get('message')}`
-    );
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    msg.textContent = 'Launching email draft. Real web-form delivery needs the Squarespace/Formspree endpoint added.';
-    return;
-  }
-
-  e.preventDefault();
-  msg.textContent = 'Sending inquiry...';
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { Accept: 'application/json' }
-  });
-
-  if (response.ok) {
-    form.reset();
-    msg.textContent = 'Thanks — your inquiry was sent.';
-  } else {
-    msg.textContent = `Something went wrong. Please email ${email}.`;
-  }
-});
-
     </script>
+      <script src="site-menu.js"></script>
+    <script src="site-forms.js"></script>
   </body>
 </html>
