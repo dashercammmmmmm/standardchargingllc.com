@@ -4,32 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Report a Charging Issue — Standard Charging</title>
-  <link rel="stylesheet" href="../site-page-style.css">
+  <meta name="description" content="Report a charging issue to Standard Charging with safety guidance, optional media upload, and an on-page email form."><link rel="stylesheet" href="../site-page-style.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="../index.html">Standard Charging</a>
-      <div class="menu">
-        <button aria-label="Open menu" aria-expanded="false">☰ Menu</button>
-        <div class="menu-content">
+  <nav class="nav"><div class="shell nav-inner"><a class="brand" href="../index.html">Standard Charging</a><div class="menu"><button aria-label="Open menu" aria-expanded="false">☰ Menu</button><div class="menu-content">
           <a href="../index.html">Home</a>
-          <a href="hosts-become-destinations.html">Hosts become destinations</a>
-          <a href="partnership-model.html">Partnership model</a>
-          <a href="community-impact.html">Community Impact</a>
-          <a href="roadmap.html">Roadmap</a>
-          <a href="sponsors.html">Sponsors</a>
-          <a href="become-a-sponsor.html">Become a Sponsor</a>
-          <a href="faq.html">FAQ</a>
-          <span class="menu-divider"></span>
-          <a href="ev-charging-101.html">EV Charging 101</a>
-          <a href="kw-vs-kwh.html">kW vs kWh</a>
-          <a href="charging-etiquette.html">Charging Etiquette</a>
-          <a href="support.html">Report a Charging Issue</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+          <a href="become-a-host.html">Hosts</a>
+          <a href="become-a-sponsor.html">Sponsors</a>
+          <a href="how-it-works.html">Learn</a>
+          <a href="support.html">Support</a>
+        </div></div></div></nav>
 
   <main class="shell">
     <section class="hero">
@@ -59,6 +43,10 @@
           <label>Charger ID or stall number<input name="charger_id" placeholder="If visible" /></label>
           <label>Date/time issue happened<input required name="issue_time" placeholder="Example: today around 2:30 PM" /></label>
         </div>
+        <div class="grid">
+          <label>Issue type<select name="issue_type"><option value="">Select one if helpful</option><option>Charger unavailable</option><option>Payment or app issue</option><option>Damaged cable</option><option>Screen error</option><option>Blocked access</option><option>Slow charging</option><option>Other</option></select></label>
+          <label>Severity<select name="severity"><option value="">Select one if helpful</option><option>Safety concern</option><option>Not charging</option><option>Slow charging</option><option>General feedback</option></select></label>
+        </div>
         <label>What happened?<textarea required name="issue_details" rows="5" placeholder="What did the charger, screen, app, cable, payment, or vehicle do?"></textarea></label>
         <label>What did the charger screen or app show?<textarea name="screen_message" rows="3" placeholder="Error code, app message, blank screen, unavailable, etc."></textarea></label>
         <label>Visible damage or safety concern?<textarea name="safety_concern" rows="3" placeholder="Damaged cable, exposed wiring, blocked access, tripping hazard, etc."></textarea></label>
@@ -75,7 +63,7 @@
 
   </main>
 
-  <footer class="footer"><div class="shell"><nav class="footer-sitemap" aria-label="Footer navigation"><a href="../index.html">Home</a><a href="hosts-become-destinations.html">Hosts</a><a href="partnership-model.html">Partnership model</a><a href="community-impact.html">Community Impact</a><a href="roadmap.html">Roadmap</a><a href="sponsors.html">Sponsors</a><a href="become-a-sponsor.html">Become a Sponsor</a><a href="faq.html">FAQ</a><a href="support.html">Report a Charging Issue</a></nav><p>© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</p></div></footer>
+  <footer class="footer"><div class="shell"><nav class="footer-sitemap" aria-label="Footer navigation"><a href="../index.html">Home</a><a href="how-it-works.html">How it works</a><a href="become-a-host.html">Become a Host</a><a href="become-a-sponsor.html">Become a Sponsor</a><a href="hosts-become-destinations.html">Hosts</a><a href="partnership-model.html">Partnership model</a><a href="community-impact.html">Community Impact</a><a href="roadmap.html">Roadmap</a><a href="sponsors.html">Sponsors</a><a href="faq.html">FAQ</a><a href="support.html">Report a Charging Issue</a></nav><p>© Standard Charging LLC · Oregon. Standard Charging coordinates local charging opportunities, host/sponsor relationships, and project documentation. Electrical assessment, permitting, and installation are performed by licensed installation partners.</p></div></footer>
 <script src="../site-menu.js"></script>
 <script src="../site-forms.js"></script>
 </body>
