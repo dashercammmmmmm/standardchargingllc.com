@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://standardchargingllc.com/</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/how-it-works.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/become-a-host.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/become-a-sponsor.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/partnership-model.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/community-impact.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/roadmap.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/sponsors.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/faq.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/ev-charging-101.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/kw-vs-kwh.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/charging-etiquette.html</loc></url>
-  <url><loc>https://standardchargingllc.com/pages/support.html</loc></url>
+  <url><loc>https://standardchargingllc.com/</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/how-it-works.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/partners.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/locations.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/impact.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/about.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/journal.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/contact.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/journal/why-we-made-every-kwh-free.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/journal/the-volta-lesson.html</loc><lastmod>2026-05-02</lastmod></url>
+  <url><loc>https://standardchargingllc.com/journal/oregon-ev-q1-2026.html</loc><lastmod>2026-05-02</lastmod></url>
 </urlset>
