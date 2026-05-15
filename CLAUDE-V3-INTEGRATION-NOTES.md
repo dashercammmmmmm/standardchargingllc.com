@@ -1,9 +1,9 @@
-# Claude v3 integration notes
+# Archived website integration notes
 
-Local-only staged update from `standardcharging-v3-fixed.zip`.
+This file is retained as historical workspace context only.
 
-- Current website was backed up before copying the v3 files.
-- New v3 root pages were copied into the repo root: `about.html`, `contact.html`, `how-it-works.html`, `impact.html`, `locations.html`, `partners.html`, `journal.html`, legal pages, journal posts, sitemap, robots, and homepage.
-- Existing `pages/` folder is preserved for rollback/reference until Cam approves final routing.
-- Public-safety sanitization applied before preview: removed public dollar pricing, softened legal/benefit-company claims, shifted the 5% language to a profit/growth goal, and consolidated visible contact email to `cam@standardchargingllc.com` except privacy/legal.
-- Not pushed live.
+Current public source of truth:
+- Use the live HTML files in this directory.
+- Public site copy should stay inquiry-first and proof-safe.
+- Do not publish private economics, checkout links, unverified launch claims, or internal build notes.
+- Current visible Updates page still uses `journal.html` as its URL until a route rename is approved.

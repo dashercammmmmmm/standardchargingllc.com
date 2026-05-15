@@ -264,8 +264,8 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
 
 /* ── STORY SECTION ── */
 .story-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; max-width: var(--max-width); margin: 0 auto; }
-.story-img { background: var(--sc-line-soft); aspect-ratio: 4/5; border-radius: 4px; position: relative; overflow: hidden; }
-.story-img-ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-style: italic; color: var(--sc-text-light); font-size: 15px; text-align: center; padding: 24px; background: linear-gradient(135deg,rgba(26,77,46,0.06) 0%,rgba(26,77,46,0.02) 50%,rgba(26,77,46,0.08) 100%); }
+.story-img { background: var(--sc-line-soft); aspect-ratio: 4/5; border-radius: 18px; position: relative; overflow: hidden; box-shadow: 0 28px 70px rgba(14,45,26,0.16); }
+.story-img img { width: 100%; height: 100%; object-fit: cover; object-position: 28% center; display: block; }
 .story-quote { font-family: var(--font-display); font-size: clamp(28px,3.6vw,44px); font-weight: 400; line-height: 1.2; letter-spacing: -0.025em; color: var(--sc-ink); font-variation-settings: "opsz" 144; margin-bottom: 28px; }
 .story-quote em { font-style: italic; color: var(--sc-green); }
 .story-attr { font-size: 14px; color: var(--sc-text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
@@ -385,7 +385,7 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
   <a href="locations.html">Locations</a>
   <a href="impact.html">Impact</a>
   <a href="about.html">About</a>
-  <a href="journal.html">Journal</a>
+  <a href="journal.html">Updates</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -393,13 +393,13 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
   <div class="ph-inner">
     <div class="eyebrow fi1">About</div>
     <h1 class="ph-hed bal fi2">A marketing firm <em>that happens to deliver electricity.</em></h1>
-    <p class="ph-lede fi3">Standard Charging is A community-first charging network headquartered in Albany, founded on the premise that free public EV charging is better marketing than any billboard, and a more honest civic contribution than any tax write-off.</p>
+    <p class="ph-lede fi3">Standard Charging is a community-first charging network headquartered in Albany, founded on the premise that free public EV charging is better marketing than any billboard, and a more honest civic contribution than any tax write-off.</p>
   </div>
 </header>
 
 <section class="sec cream" style="padding-top:clamp(80px,12vw,160px);padding-bottom:clamp(80px,12vw,160px);">
   <div class="story-grid">
-    <div class="story-img rev"><div class="story-img-ph">Founder portrait &mdash;<br>replace with photograph</div></div>
+    <figure class="story-img rev"><img src="assets/founder-cam-maryspk.jpg" alt="Cam, founder of Standard Charging, overlooking the Oregon landscape from Marys Peak"></figure>
     <div>
       <div class="sec-eyebrow rev">A note from our founder</div>
       <p class="story-quote bal rev">We started Standard Charging because the EV charging map was being drawn the wrong way. <em>The road home shouldn&rsquo;t run through a per-kilowatt meter</em>&mdash;it should run through your neighborhood, past the businesses that make a place worth living in.</p>
@@ -413,13 +413,13 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
     <h2>What we believe</h2>
     <p><strong>One:</strong> charging should not be where you make money on an EV driver. The charger is infrastructure. The relationship with the community is the product.</p>
     <p><strong>Two:</strong> drivers don&rsquo;t need another app. The Autel chargers in our network work the same way a parking meter does, except the meter has been paid by your friendly neighborhood credit union. Plug in. Plug out. No account, no email collection, no upsell.</p>
-    <p><strong>Three:</strong> the cities that host us deserve more than another logo on a sign. We will fund tangible infrastructure projects every year, in every city we operate, and we will report on the impact clearly.</p>
+    <p><strong>Three:</strong> the cities that host us deserve more than another logo on a sign. As the network grows, our goal is to reinvest in tangible local infrastructure projects and report on the impact clearly.</p>
     <h2>How we&rsquo;re structured</h2>
     <p>Standard Charging LLC is being built to consider community impact alongside financial sustainability, with public-facing reporting planned as the network grows. Our operating agreement memorializes the 5% Impact Fund commitment as a binding fiduciary duty, not a marketing promise. We are also working toward B Corp certification through B Lab.</p>
     <h2>How we operate</h2>
-    <p>We are structured to run lean. The chargers are owned and maintained by us; installation is performed by licensed Oregon electrical contractors. Our marketing services run on an AI-first operations stack&mdash;n8n orchestration, Anthropic Claude as the reasoning layer, and best-in-class tools for SEO, content, social, and analytics&mdash;which is how a small team can deliver enterprise-grade marketing services to dozens of local sponsors.</p>
+    <p>We are structured to run lean. Standard Charging owns and maintains the network, while installation is performed by licensed Oregon electrical contractors. Sponsor services are built around practical deliverables: local visibility audits, approved content, search and directory cleanup, charger-use reporting, and clear monthly summaries a business owner can actually use.</p>
     <h2>Where we&rsquo;re going</h2>
-    <p>Our 2026 plan: deploy the Albany pilot, sign 6&ndash;10 founding sponsors, expand to Corvallis and Eugene, and publish our first Impact Report. Through 2027, expand to Bend, Salem, Hood River, and the Portland metro. By 2028, begin selectively licensing the model to operators in other states.</p>
+    <p>Our near-term plan is to prove the model around Albany first: identify practical host sites, secure founding sponsors, install responsibly, and publish clear updates as real milestones happen. From there, we will review nearby Oregon communities based on host fit, sponsor support, electrical practicality, and driver usefulness.</p>
     <p>If you&rsquo;d like to be part of the story&mdash;as a sponsor, a site host, a partner, or a future operator in another city&mdash;<a href="contact.html">we&rsquo;d love to hear from you</a>.</p>
   </div>
 </div>
@@ -436,7 +436,7 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="locations.html">Locations</a></li>
         <li><a href="impact.html">Impact</a></li>
-        <li><a href="journal.html">Journal</a></li>
+        <li><a href="journal.html">Updates</a></li>
       </ul></div>
       <div class="footer-col"><h4>Sponsors</h4><ul>
         <li><a href="partners.html">Sponsorship options</a></li>

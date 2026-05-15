@@ -1,36 +1,25 @@
-# Standard Charging LLC Website (Apple-style landing + payments)
+# Standard Charging website
 
-## What this includes
-- Clean Apple-like UI landing page
-- Business summary + economics + roadmap sections
-- Payment buttons wired for Stripe Payment Links
-- Contact inquiry form (mailto-based MVP)
+Current public site source for Standard Charging.
 
-## Files
-- `index.html`
-- `styles.css`
-- `app.js`
-- `config.js`
+## Public positioning
+- Brand: Standard Charging publicly; Standard Charging LLC in footer/legal contexts.
+- Story: sponsor-supported public Level 2 EV charging, starting around Albany and reviewing other Oregon communities based on real host/sponsor fit.
+- Do not publish private economics, checkout flows, package-amount tables, unverified live-site claims, or hard expansion timelines without approval.
 
-## Configure payments
-1. In Stripe, create 3 Payment Links:
-   - Host Pilot Deposit
-   - Sponsor Package
-   - Operations Plan
-2. Replace URLs in `config.js`.
-3. Replace `contactEmail` in `config.js`.
+## Current important files
+- `index.html` — homepage
+- `partners.html` — sponsor packages and application interest form
+- `locations.html` — Albany-first / open city nomination page
+- `about.html` — founder story and company model
+- `contact.html` — contact card and inquiry form
+- `journal.html` — visible Updates page label retained at old URL until route rename is approved
+- `assets/founder-cam-maryspk.jpg` — founder photo
+
+## Forms and payments
+This public site should use inquiry-first forms. Do not add public checkout flows or public package amounts unless Cam explicitly approves them.
 
 ## Local preview
 ```bash
-cd ~/.openclaw/workspace/projects/standard-charging-website
-python3 -m http.server 8080
+python3 -m http.server 8096 --bind 127.0.0.1 --directory /Users/benjaminfranklinautomation/.openclaw/workspace/standard_charging/website
 ```
-Open: `http://localhost:8080`
-
-## Deploy options
-- Netlify drag-and-drop folder
-- Vercel static deployment
-- Cloudflare Pages
-
-## Notes
-This is a production-ready MVP marketing site. For full embedded card processing + CRM capture, add a backend (Stripe Checkout Sessions + webhook + lead database).
