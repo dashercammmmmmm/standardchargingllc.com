@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Standard Charging</title>
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Standard Charging">
 <meta name="twitter:description" content="Get in touch about sponsorship, site suggestions, city partnerships, press, or general questions.">
 <meta name="description" content="Get in touch about sponsorship, site suggestions, city partnerships, press, or general questions.">
@@ -14,6 +14,12 @@
 <meta property="og:description" content="Get in touch about sponsorship, site suggestions, city partnerships, press, or general questions.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://standardchargingllc.com/contact.html">
+<meta property="og:image" content="https://standardchargingllc.com/assets/standard-charging-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Standard Charging — Free EV charging, sponsored locally.">
+<meta name="twitter:image" content="https://standardchargingllc.com/assets/standard-charging-og.png">
+<meta name="twitter:image:alt" content="Standard Charging — Free EV charging, sponsored locally.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -365,7 +371,7 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
 .bal { text-wrap: balance; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 </style>
-</head>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Standard Charging","url":"https://standardchargingllc.com/contact.html","about":{"@type":"Organization","name":"Standard Charging","email":"cam@standardchargingllc.com","areaServed":"Oregon"}}</script></head>
 <body>
 
 <nav class="nav" id="nav">
@@ -416,12 +422,13 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
     </div>
     <div class="rev">
       <div class="sec-eyebrow">Send us a note</div>
-      <form style="margin-top:40px" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--sc-green);letter-spacing:-0.02em\'>Thank you. We\'ll be in touch within two business days.</p>'">
-        <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" required></div>
-        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" required></div>
-        <div class="form-group"><label class="form-label">What&rsquo;s this about?</label><select class="form-select"><option>Sponsorship inquiry</option><option>Site location suggestion</option><option>City / municipal partnership</option><option>Press / media</option><option>General question</option></select></div>
-        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" required></textarea></div>
-        <button type="submit" class="btn">Send message <svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <form style="margin-top:40px" class="stacked-form" novalidate data-email-form data-endpoint="https://formsubmit.co/ajax/cam@standardchargingllc.com" action="https://formsubmit.co/ajax/cam@standardchargingllc.com" method="POST" aria-describedby="contactMsg">
+        <input type="hidden" name="_subject" value="Standard Charging - Website Contact"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://standardchargingllc.com/pages/thank-you.html">
+        <div class="form-group"><label class="form-label">Your name<input class="form-input" type="text" name="name" autocomplete="name" required></label></div>
+        <div class="form-group"><label class="form-label">Email<input class="form-input" type="email" name="email" autocomplete="email" required></label></div>
+        <div class="form-group"><label class="form-label">What&rsquo;s this about?<select class="form-select" name="topic"><option>Sponsorship inquiry</option><option>Site location suggestion</option><option>City / municipal partnership</option><option>Press / media</option><option>General question</option></select></label></div>
+        <div class="form-group"><label class="form-label">Message<textarea class="form-textarea" name="message" required></textarea></label></div>
+        <button type="submit" class="btn">Send message <svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="split-body" id="contactMsg">This sends directly to cam@standardchargingllc.com. First-time FormSubmit activation may require inbox confirmation.</p>
       </form>
     </div>
   </div>
@@ -536,5 +543,6 @@ body.menu-open main, body.menu-open .hero, body.menu-open .counter-strip, body.m
   });
 })();
 </script>
+<script src="site-forms.js"></script>
 </body>
 </html>

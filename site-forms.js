@@ -115,8 +115,10 @@
         setStatus(form, 'Sending…');
         try {
           await submitForm(form);
+          const next = form.querySelector('input[type="hidden"][name="_next"]')?.value;
           form.reset();
           setStatus(form, 'Thanks — your message was sent.');
+          if (next) window.location.href = next;
         } catch (error) {
           setStatus(form, `Could not send from the page yet. Please email ${defaultEmail}.`);
           console.error(error);
